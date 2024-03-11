@@ -1,0 +1,17 @@
+class Solution {
+    func maxArea(_ height: [Int]) -> Int {
+        var prev = 0
+        var next = height.count - 1
+        var maxi = 0
+        while (prev < next){
+            var curr = min(height[prev], height[next]) * (next - prev)
+            maxi = max(maxi, curr)
+            if(height[prev] < height[next]){
+                prev += 1
+            }else{
+                next -= 1
+            }
+        }
+        return maxi
+    }
+}
