@@ -1,0 +1,55 @@
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ 
+class Solution {
+    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        ListNode newHead = new ListNode(0);
+        ListNode tail = newHead;
+        int carry = 0;
+
+        while(l1 != null || l2 != null || carry != 0){
+            int digit1 = (l1 != null) ? l1.val : 0;
+            int digit2 = (l2 != null) ? l2.val : 0;
+
+            int sum = digit1 + digit2 + carry;
+            int digit = sum % 10;
+            carry = sum / 10;
+
+            ListNode newNode = new ListNode(digit);
+            tail.next = newNode;
+            tail = tail.next;
+
+            l1 = (l1 != null) ? l1.next : null;
+            l2 = (l2 != null) ? l2.next : null;
+        }
+        ListNode result = newHead.next;
+        newHead.next = null;
+        return result;
+
+    }
+}*/
+
+class Solution {
+    private int carry = 0;
+
+    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        // Base case: If both input lists and carry are null, return null
+        if (l1 == null && l2 == null && carry == 0) {
+            return null;
+        }
+
+        // Calculate the sum of current digits and the carry
+        int sum = (l1 != null ? l1.val : 0) + (l2 != null ? l2.val : 0) + carry;
+        carry = sum / 10; // Update carry for next addition
+
+        // Create a new node with the calculated digit and recursively call the function for next nodes
+        return new ListNode(sum % 10, addTwoNumbers(l1 != null ? l1.next : null, l2 != null ? l2.next : null));
+    }
+}
