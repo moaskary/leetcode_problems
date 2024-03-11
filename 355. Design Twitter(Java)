@@ -1,0 +1,70 @@
+class Twitter {
+    ListNode tweets;
+    HashMap<Integer, ArrayList<Integer>> followings;
+
+    public Twitter() {
+        followings = new HashMap<>();
+    }
+    
+    public void postTweet(int userId, int tweetId) {
+        if(tweets == null){
+            tweets = new ListNode(new Pair<Integer, Integer>(userId, tweetId));
+        }else{
+            ListNode node = new ListNode(new Pair<Integer, Integer>(userId, tweetId));
+            node.next = tweets;
+            tweets = node;
+        }
+    }
+    
+    public List<Integer> getNewsFeed(int userId) {
+        List<Integer> ans = new ArrayList<>();
+        ArrayList<Integer> followingList = followings.getOrDefault(userId, null);
+        if(followingList==null){
+            followingList = new ArrayList<Integer>();
+        }
+        ListNode tweet = tweets;
+        while(ans.size()!=10 && tweet !=null){
+            if(followingList.contains(tweet.val.getKey()) || userId == tweet.val.getKey())
+                ans.add(tweet.val.getValue());
+                tweet = tweet.next;
+        }
+        return ans;
+    }
+    
+    public void follow(int followerId, int followeeId) {
+        ArrayList<Integer> followList = followings.getOrDefault(followerId,null);
+        if(followList==null){
+            followings.put(followerId, new ArrayList<Integer>());
+        }
+        followings.get(followerId).add(followeeId);
+    }
+    
+    public void unfollow(int followerId, int followeeId) {
+        ArrayList<Integer> followList = followings.getOrDefault(followerId, null);
+        if(followList==null) return;
+
+        for(int i = 0; i<followList.size(); i++){
+            if(followList.get(i)==followeeId){
+                followList.remove(i);
+                break;
+            }
+        }
+    }
+}
+class ListNode{
+    Pair<Integer, Integer> val;
+    ListNode next;
+    public ListNode(Pair<Integer, Integer> val){
+        this.val = val;
+        this.next = null;
+    }
+}
+
+/**
+ * Your Twitter object will be instantiated and called as such:
+ * Twitter obj = new Twitter();
+ * obj.postTweet(userId,tweetId);
+ * List<Integer> param_2 = obj.getNewsFeed(userId);
+ * obj.follow(followerId,followeeId);
+ * obj.unfollow(followerId,followeeId);
+ */
