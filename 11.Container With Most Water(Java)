@@ -1,0 +1,18 @@
+class Solution {
+    public int maxArea(int[] height) {
+        int prev = 0;
+        int next = height.length - 1;
+        int max = 0;
+        while(prev < next){
+            int curr = Math.min(height[prev], height[next]) * (next - prev);
+            max = Math.max(max, curr);
+
+            if(height[prev] < height[next]){
+                prev++;
+            }else{
+                next--;
+            }
+        }
+        return max; 
+    }
+}
