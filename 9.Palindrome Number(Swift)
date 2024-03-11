@@ -1,0 +1,12 @@
+class Solution {
+    func isPalindrome(_ x: Int) -> Bool {
+        var rev = 0
+        var temp = x
+        while(temp > 0){
+            var lastDigit = temp % 10
+            rev = rev * 10 + lastDigit
+            temp /= 10
+        }
+        return (rev == x)
+    }
+}
