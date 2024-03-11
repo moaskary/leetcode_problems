@@ -1,0 +1,10 @@
+class Solution {
+    func largestAltitude(_ gain: [Int]) -> Int {
+        var diff = [0]
+        for index in 0..<gain.count {
+            diff.append(gain[index] + diff.last!)
+        }
+        
+        return diff.max()!
+    }
+}
