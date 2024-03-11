@@ -1,0 +1,40 @@
+class Solution {
+    public List<List<String>> groupAnagrams(String[] strs) {
+        if(strs == null || strs.length == 0){
+            return new ArrayList<>();
+        }
+        Map<String, List<String>> anagramGroups = new HashMap<>();
+
+        for(String str : strs){
+            char[] charArray = str.toCharArray();
+            Arrays.sort(charArray);
+            String sortedStr = new String(charArray);
+            anagramGroups.computeIfAbsent(sortedStr, k -> new ArrayList<>()).add(str);
+        }
+        return new ArrayList<>(anagramGroups.values());
+    }
+}
+
+/*
+Map<String, List<String>> anagrams = new HashMap<>();
+        for(String currentString : strs){
+            char[] charArray = currentString.toCharArray();
+            java.util.Arrays.sort(charArray);
+            String sortedString = new String(charArray);
+            if(anagrams.containsKey(sortedString)){
+                anagrams.get(sortedString).add(currentString);
+            }else{
+                List<String> groupList = new ArrayList<>();
+                groupList.add(currentString);
+                anagrams.put(sortedString, groupList);
+            }
+        }
+
+        List<List<String>> result = new ArrayList<>();
+        for(List<String> group : anagrams.values()){
+            if(group.size() >= 2){
+                result.add(group);
+            }
+        }
+        return result;
+*/
