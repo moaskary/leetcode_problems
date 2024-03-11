@@ -1,0 +1,44 @@
+class Solution {
+    func twoSum(_ nums: [Int], _ target: Int) -> [Int] {
+        //create a dictionary
+        var res: [Int: Int] = [:]
+        for (secondIndex, num) in nums.enumerated(){
+            if let firstIndex = res[num]{
+                return [firstIndex, secondIndex]
+            }else{
+                res[target - num] = secondIndex
+            }
+        }
+        return []
+    }
+}
+
+/*
+class Solution {
+    func twoSum(_ nums: [Int], _ target: Int) -> [Int] {
+        var subtractions: [Int: Int] = [:]
+
+        for (secondIndex, num) in nums.enumerated() { 
+            if let firstIndex = subtractions[num] { 
+                return [firstIndex, secondIndex] 
+            } else { 
+                subtractions[target - num] = secondIndex
+            }
+        }
+
+        return []
+    }
+}
+my first solution
+var res: [Int] = []
+        for i in 0 ..< nums.count - 1{
+            for j in (i+1) ..< nums.count{
+                if(nums[i] + nums[j] == target){
+                    res.append(i)
+                    res.append(j)
+                    return res
+                }
+            }
+        }
+        return [-1,-1]
+*/
