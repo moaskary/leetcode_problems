@@ -1,0 +1,32 @@
+class Solution {
+    func longestCommonPrefix(_ strs: [String]) -> String {
+        var prefix = strs[0]
+        for str in strs {
+            while !str.hasPrefix(prefix) {
+                prefix.removeLast()
+            }
+        }
+        return prefix
+    }
+}
+/*
+        guard strs.count > 0 else { return "" }
+
+        var sortedStrs = strs.sorted()
+        let lb = sortedStrs[0]
+        let ub = sortedStrs[strs.count - 1]
+
+        var c = 0
+        while c < lb.count {
+            let lbChar = lb[lb.index(lb.startIndex, offsetBy: c)]
+            let ubChar = ub[ub.index(ub.startIndex, offsetBy: c)]
+            if lbChar == ubChar {
+                c += 1
+            } else {
+                break
+            }
+        }
+
+        let endIndex = lb.index(lb.startIndex, offsetBy: c)
+        return String(lb[..<endIndex])
+*/
