@@ -5,10 +5,10 @@ class Solution {
             if(nums[i] != 0){
                 if(i != z){
                     int temp = nums[z];
-                    nums[zero] = nums[i];
+                    nums[z] = nums[i];
                     nums[i] = temp;
                 }
-                zero++;
+                z++;
             }
         }
     }
