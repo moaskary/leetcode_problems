@@ -4,7 +4,6 @@ class Solution {
         for index in 0..<gain.count {
             diff.append(gain[index] + diff.last!)
         }
-        
         return diff.max()!
     }
 }
