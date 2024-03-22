@@ -8,3 +8,29 @@
  *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
  * }
  */
+class Solution {
+    public ListNode oddEvenList(ListNode head) {
+        if(head == null || head.next == null)
+            return head;
+            
+        ListNode even = new ListNode(0);
+        ListNode evenTemp = even;
+        ListNode odd = new ListNode(0);
+        ListNode oddTemp = odd;
+        int idx = 1;
+        while (head != null){
+            if(idx % 2 == 0){
+                evenTemp.next = head;
+                evenTemp = evenTemp.next;
+            }else{
+                oddTemp.next = head;
+                oddTemp = oddTemp.next;
+            }
+            head = head.next;
+            idx++;
+        }
+        evenTemp.next = null;
+        oddTemp.next = even.next;
+        return odd.next;
+    }
+}
