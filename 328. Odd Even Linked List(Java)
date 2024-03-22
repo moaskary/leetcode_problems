@@ -30,6 +30,7 @@ class Solution {
             head = head.next;
             idx++;
         }
+
         evenTemp.next = null;
         // Link the last odd indexed node to the first even indexed node
         oddTemp.next = even.next;
