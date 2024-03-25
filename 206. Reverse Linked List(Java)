@@ -22,3 +22,8 @@ class Solution {
         return rev;
     }
 }
+/*
+loop 1:
+    nextNode = 1 && OG = 2 && rev = 1
+loop 2:
+*/
