@@ -26,4 +26,6 @@ class Solution {
 loop 1:
     nextNode = 1 && OG = 2 && rev = 1
 loop 2:
+    nextNode = 2 && OG = 3 && rev = 2
+
 */
