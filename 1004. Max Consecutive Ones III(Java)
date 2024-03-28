@@ -12,9 +12,9 @@ class Solution {
                 if(nums[start] == 0){
                     zero--;
                 }
-                start++;
+                
             }
         }
-        
+        return end-start;
     }
 }
