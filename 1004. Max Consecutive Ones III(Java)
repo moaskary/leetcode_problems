@@ -10,7 +10,7 @@ class Solution {
             end++;
             if(zero>k){
                 if(nums[start] == 0){
-                    zero--
+                    zero--;
                 }
                 start++;
             }
