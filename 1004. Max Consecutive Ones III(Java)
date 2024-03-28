@@ -5,7 +5,7 @@ class Solution {
         int zero=0;
         while(end<nums.length){
             if(nums[end] == 0){
-                zero++
+                zero++;
             }
             end++;
             if(zero>k){
