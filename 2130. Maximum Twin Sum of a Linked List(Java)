@@ -37,5 +37,15 @@ class Solution {
         }
         return newlst;
     }
-    
+    private ListNode revLst(ListNode head){
+        ListNode rev = null;
+        ListNode curr = head;
+        while(curr != null){
+            ListNode nd = curr.next;
+            curr.next = rev;
+            rev = curr;
+            curr = nd;
+        }
+        return rev;
+    }
 }
