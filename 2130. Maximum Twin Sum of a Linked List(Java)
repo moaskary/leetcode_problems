@@ -23,5 +23,19 @@ class Solution {
         }
         return maxSum;
     }
+    private ListNode copyList(ListNode head){
+        if (head == null)
+            return null;
+        ListNode newlst = new ListNode(head.val);
+        ListNode newCurr = newlst;
+        ListNode org = head.next;
+        while(org != null){
+            ListNode nd = new ListNode(org.val);
+            newCurr.next = nd;
+            newCurr = newCurr.next;
+            org = org.next;
+        }
+        return newlst;
+    }
     
 }
