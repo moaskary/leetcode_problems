@@ -14,7 +14,19 @@ class Solution {
 }
 
 /*
+class Solution {
+    func twoSum(_ nums: [Int], _ target: Int) -> [Int] {
+        var subtractions: [Int: Int] = [:]
 
+        for (secondIndex, num) in nums.enumerated() { 
+            if let firstIndex = subtractions[num] { 
+                return [firstIndex, secondIndex] 
+            } else { 
+                subtractions[target - num] = secondIndex
+            }
+        }
+
+        return []
     }
 }
 my first solution
