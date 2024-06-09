@@ -18,3 +18,25 @@ class Solution {
         return res
     }
 }
+/*
+class Solution {
+    func mergeAlternately(_ word1: String, _ word2: String) -> String {
+        var res = ""
+        var i = 0
+        let maxlen = max(word1.count, word2.count)
+        
+        while (i < maxlen) {
+            if (i < word1.count) {
+                let index1 = word1.index(word1.startIndex, offsetBy:i)
+                res += String(word1[index1])
+            }
+            if (i < word2.count){
+                let index2 = word2.index(word2.startIndex, offsetBy:i)
+                res += String(word2[index2])
+            }
+            i += 1
+        }
+        return res
+    }
+}
+*/
