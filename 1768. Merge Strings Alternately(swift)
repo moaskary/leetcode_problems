@@ -1,1 +1,20 @@
-
+class Solution {
+    func mergeAlternately(_ word1: String, _ word2: String) -> String {
+        var res = ""
+        var i = 0
+        let maxlen = max(word1.count, word2.count)
+        
+        let wrdArr1 = Array(word1)
+        let wrdArr2 = Array(word2)
+        for i in 0..<maxlen{
+            if (i < word1.count){
+                res.append(wrdArr1[i])
+            }
+            if (i < word2.count){
+                res.append(wrdArr2[i])
+            }
+            
+        }
+        return res
+    }
+}
