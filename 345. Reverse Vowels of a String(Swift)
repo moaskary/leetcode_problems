@@ -1,1 +1,24 @@
+class Solution {
+    func reverseVowels(_ s: String) -> String {
+        let vowels: Set<Character> = ["a", "e","i", "o","u","A","E","I","O","U"]
+        var character = Array(s)
+        var left = 0
+        var right = character.count - 1
 
+        while(left < right){
+            while(left < right && !vowels.contains(character[left])){
+                left += 1
+            }
+            while(left < right && !vowels.contains(character[right])){
+                right -= 1
+            }
+            if(left < right)
+            {
+                character.swapAt(left, right)
+                left += 1
+                right -= 1
+            }
+        }
+        return String(character)
+    }
+}
