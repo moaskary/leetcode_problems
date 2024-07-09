@@ -1,0 +1,19 @@
+class Solution {
+    func productExceptSelf(_ nums: [Int]) -> [Int] {
+        let n = nums.count
+        var res = Array(repeating:1 , count: n)
+
+        var left = 1
+        for i in 0..<n{
+            res[i] = left
+            left *= nums[i]
+        }
+
+        var right = 1
+        for i in (0..<n).reversed(){
+            res[i] *= right
+            right *= nums[i]
+        }
+        return res
+    }
+}
