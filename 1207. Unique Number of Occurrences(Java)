@@ -1,0 +1,18 @@
+class Solution {
+    public boolean uniqueOccurrences(int[] arr) {
+        Map<Integer, Integer> nMap = new HashMap<>();
+
+        for(int num : arr){
+            nMap.put(num, nMap.getOrDefault(num, 0)+1);
+        }
+
+        Set<Integer> nSet = new HashSet<>();
+        for(int i : nMap.values()){
+            if(nSet.contains(i)){
+                return false;
+            }
+            nSet.add(i);
+        }
+        return true;
+    }
+}
