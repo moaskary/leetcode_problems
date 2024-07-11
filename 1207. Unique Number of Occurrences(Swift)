@@ -1,0 +1,17 @@
+class Solution {
+    func uniqueOccurrences(_ arr: [Int]) -> Bool {
+        var nDict: [Int : Int] = [:]
+        for num in arr{
+            nDict[num, default: 0] += 1
+        }
+
+        var nSet: Set<Int> = []
+        for i in nDict.values{
+            if(nSet.contains(i)){
+                return false
+            }
+            nSet.insert(i)
+        }
+        return true
+    }
+}
