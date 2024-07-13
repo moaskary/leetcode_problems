@@ -1,3 +1,4 @@
+//runtime 0ms beats 100.00% and memory 14.89mb beats 100.00%
 class Solution {
     func fib(_ n: Int) -> Int {
         // do it linear "count up from start"
