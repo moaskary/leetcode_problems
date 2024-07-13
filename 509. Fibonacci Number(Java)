@@ -1,4 +1,4 @@
-//faster and beats 100 of java user with runtime of 0ms
+//runtime 0ms beats 100.00% and memory 40.09mb beats 66.64%
 class Solution {
     public int fib(int n) {
         ArrayList<Integer> res = new ArrayList<>();
