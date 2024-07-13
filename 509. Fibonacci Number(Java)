@@ -1,3 +1,16 @@
+//faster and beats 100 of java user with runtime of 0ms
+class Solution {
+    public int fib(int n) {
+        ArrayList<Integer> res = new ArrayList<>();
+        res.add(0);
+        res.add(1);
+        for (int i = 2; i <= n; i++){
+            res.add(res.get(i-1) + res.get(i-2));
+        }
+        return res.get(n);
+    }
+}
+// the classic way
 class Solution {
     public int fib(int n) {
         if(n == 0) return 0;
