@@ -1,3 +1,4 @@
+/*
 class Solution {
     public int climbStairs(int n) {
         int ways = 1;
@@ -11,3 +12,4 @@ class Solution {
         return ways;
     }
 }
+*/
