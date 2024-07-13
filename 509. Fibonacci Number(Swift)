@@ -1,3 +1,20 @@
+class Solution {
+    func fib(_ n: Int) -> Int {
+        // do it linear "count up from start"
+        if(n == 0){
+            return 0
+        }
+        if(n == 1){
+            return 1
+        }
+        var res = [0, 1]
+        for i in 2...n{
+            res.append(res[i-1] + res[i-2])
+        }
+        return res[n]
+    }
+}
+
 // The classic way
 class Solution {
     func fib(_ n: Int) -> Int {
