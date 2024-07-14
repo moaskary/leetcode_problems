@@ -1,0 +1,27 @@
+class Solution {
+    func lastStoneWeight(_ stones: [Int]) -> Int {
+         var maxHeap = stones.sorted(by: >)
+        
+        while maxHeap.count > 1 {
+            let y = maxHeap.removeFirst()
+            let x = maxHeap.removeFirst()
+            
+            if y != x {
+                let diff = y - x
+                var inserted = false
+                for i in 0..<maxHeap.count {
+                    if diff > maxHeap[i] {
+                        maxHeap.insert(diff, at: i)
+                        inserted = true
+                        break
+                    }
+                }
+                if !inserted {
+                    maxHeap.append(diff)
+                }
+            }
+        }
+        
+        return maxHeap.isEmpty ? 0 : maxHeap[0]
+    }
+}
