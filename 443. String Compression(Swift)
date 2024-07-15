@@ -1,1 +1,40 @@
+class Solution {
+    private func writeIn(_ chars: inout [Character], _ writeIndex: inout Int, _ char: Character, _ count: Int){
+        chars[writeIndex] = char
+        writeIndex += 1
+        guard count > 1 else { return }
+        var multiplier = 10
+        while(multiplier <= count){
+            multiplier *= 10
+        }
+        multiplier /= 10
+        while (multiplier > 0){
+            let digit = (count / multiplier) % 10
+            multiplier /= 10
+            chars[writeIndex] = Character("\(digit)")
+            writeIndex += 1
+        }
+    }
 
+    func compress(_ chars: inout [Character]) -> Int {
+        var readIndex = 1
+        var writeIndex = 0
+        var currChar : Character = chars[0]
+        var count = 1
+
+        while (readIndex < chars.count){
+            if (chars[readIndex] == currChar) {
+                count += 1
+            }
+            else
+            {
+                writeIn(&chars, &writeIndex, currChar, count)
+                currChar = chars[readIndex]
+                count = 1
+            }
+            readIndex += 1
+        }
+        writeIn(&chars, &writeIndex, currChar, count)
+        return writeIndex
+    }
+}
