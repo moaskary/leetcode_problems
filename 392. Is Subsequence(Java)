@@ -1,3 +1,21 @@
+
+/*
+class Solution {
+    public boolean isSubsequence(String s, String t) {
+        int i = 0;
+        int j = 0;
+
+        while(i < s.length() && j < t.length()){
+            if(s.charAt(i) == t.charAt(j)){
+                i++;
+            }
+            j++;
+        }
+        return i == s.length();
+    }
+}
+*/
+/*
 class Solution {
     public boolean isSubsequence(String s, String t) {
         // Edge case: if the length of s is greater than the length of t, return false
@@ -20,3 +38,4 @@ class Solution {
         return subsequence == sLength;
     }
 }
+*/
